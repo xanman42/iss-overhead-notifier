@@ -30,6 +30,7 @@ def send_mail():
                 msg='Subject:ISS notifier\n\nGo outside and look up, the ISS is visible where you are.'
             )
 
+
 response = requests.get(url="http://api.open-notify.org/iss-now.json")
 response.raise_for_status()
 data = response.json()
@@ -54,7 +55,6 @@ sunset = int(data["results"]["sunset"].split("T")[1].split(":")[0])
 
 time_now = datetime.now()
 current_hour = int(str(time_now).split(' ')[1].split(':')[0])
-
 
 send_mail()
 # If the ISS is close to my current position
