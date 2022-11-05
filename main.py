@@ -1,6 +1,7 @@
 import requests
 from datetime import datetime
 import smtplib
+import time
 
 MY_LAT = -25.747868  # Your latitude
 MY_LONG = 28.229271  # Your longitude
@@ -51,7 +52,9 @@ def send_mail():
             )
 
 
-send_mail()
+while True:
+    send_mail()
+    time.sleep(60)
 # If the ISS is close to my current position
 # and it is currently dark
 # Then send me an email to tell me to look up.
